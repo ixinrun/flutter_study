@@ -1,4 +1,5 @@
 import 'package:ehi_school/app/init.dart';
+import 'package:ehi_school/app/routes.dart';
 import 'package:ehi_school/modules/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,8 +16,9 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       builder: () => MaterialApp(
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: true,
         title: '一嗨学院',
+        routes: staticRoutes,
         home: WelcomePage(),
       ),
     );

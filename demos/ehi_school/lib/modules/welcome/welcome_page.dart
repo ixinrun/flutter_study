@@ -1,9 +1,12 @@
 import 'package:ehi_school/common/utils/screen_util.dart';
 import 'package:ehi_school/common/widgets/button.dart';
+import 'package:ehi_school/modules/login/login_page.dart';
 import 'package:ehi_school/values/styles.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
+  static const routeName = "/welcome_page";
+
   const WelcomePage({Key? key}) : super(key: key);
 
   @override
@@ -69,7 +72,9 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget _buildStartBtn() {
     return buttonWrap(
       "走进学院",
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, LoginPage.routeName);
+      },
       width: setWidth(296),
       height: setHeight(40),
       margin: EdgeInsets.only(bottom: setHeight(20)),
