@@ -1,6 +1,6 @@
 import 'package:ehi_school/common/utils/screen_util.dart';
-import 'package:ehi_school/res/colors.dart';
-import 'package:ehi_school/res/styles.dart';
+import 'package:ehi_school/common/widgets/button.dart';
+import 'package:ehi_school/values/styles.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -67,28 +67,12 @@ class _WelcomePageState extends State<WelcomePage> {
 
   /// 开始按钮
   Widget _buildStartBtn() {
-    return Container(
+    return buttonWrap(
+      "走进学院",
+      onPressed: () {},
       width: setWidth(296),
       height: setHeight(40),
       margin: EdgeInsets.only(bottom: setHeight(20)),
-      child: TextButton(
-        child: Text(
-          "走进学院",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: setFontSize(16),
-            fontFamily: "Montserrat",
-          ),
-        ),
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(AppColors.primaryColor),
-          foregroundColor: MaterialStateProperty.all(AppColors.primaryColor),
-          shape: MaterialStateProperty.all(RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          )),
-        ),
-        onPressed: () {},
-      ),
     );
   }
 

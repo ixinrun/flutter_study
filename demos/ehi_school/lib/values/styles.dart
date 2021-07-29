@@ -1,5 +1,5 @@
 import 'package:ehi_school/common/utils/screen_util.dart';
-import 'package:ehi_school/res/colors.dart';
+import 'package:ehi_school/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class TextStyles {
