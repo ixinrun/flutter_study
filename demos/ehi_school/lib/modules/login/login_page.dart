@@ -1,5 +1,9 @@
+import 'package:ehi_school/common/config/global.dart';
 import 'package:ehi_school/common/utils/screen_util.dart';
+import 'package:ehi_school/common/utils/validator.dart';
+import 'package:ehi_school/common/widgets/toast.dart';
 import 'package:ehi_school/res/colors.dart';
+import 'package:ehi_school/res/styles.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,20 +24,20 @@ class _LoginPageState extends State<LoginPage> {
             "assets/images/ehi_school_logo.png",
             fit: BoxFit.fitWidth,
           ),
-          Text(
-            "ehi school",
-            style: TextStyle(
-              fontSize: setFontSize(10),
-              color: AppColors.textNormal,
+          Container(
+            margin: EdgeInsets.only(top: setHeight(10)),
+            child: Text(
+              "ehi school",
+              style: TextStyles.detailContent,
             ),
-          )
+          ),
         ],
       ),
     );
   }
 
   /// 编辑框
-  Widget inputEditText({
+  Widget _inputEditText({
     required TextEditingController controller,
     TextInputType inputType = TextInputType.text,
     String hint = "",
@@ -68,19 +72,116 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  /// 登录按钮
+  Widget _buildStartBtn() {
+    return Container(
+      width: setWidth(296),
+      height: setHeight(40),
+      margin: EdgeInsets.only(top: setHeight(20)),
+      child: TextButton(
+        child: Text(
+          "登录",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: setFontSize(16),
+            fontFamily: "Montserrat",
+          ),
+        ),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(AppColors.primaryColor),
+          foregroundColor: MaterialStateProperty.all(AppColors.primaryColor),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          )),
+        ),
+        onPressed: _handlerLogin,
+      ),
+    );
+  }
+
+  /// 登录验证逻辑
+  _handlerLogin() async {
+    if (!miniStringLength(_oprNoCtl.value.text, 1)) {
+      toast("请正确输入工号");
+      return;
+    }
+    if (!miniStringLength(_passwordCtl.value.text, 1)) {
+      toast("请正确输入密码");
+      return;
+    }
+  }
+
+  // 工号输入框控制器
+  final TextEditingController _oprNoCtl = TextEditingController();
+
+  // 密码输入框控制器
+  final TextEditingController _passwordCtl = TextEditingController();
+
   /// 表单
   Widget _buildLoginForm() {
     return Container(
       width: setWidth(296),
-      margin: EdgeInsets.only(top: setHeight(50)),
+      margin: EdgeInsets.only(top: setHeight(80)),
       child: Column(
-        children: [],
+        children: [
+          _inputEditText(
+            controller: _oprNoCtl,
+            inputType: TextInputType.number,
+            hint: "请输入工号",
+          ),
+          _inputEditText(
+            controller: _passwordCtl,
+            inputType: TextInputType.visiblePassword,
+            hint: "请输入密码",
+            isPassword: true,
+            marginTop: 15,
+          ),
+          _buildStartBtn(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildVersionInfo() {
+    return Container(
+      margin: EdgeInsets.only(bottom: setHeight(20)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "一嗨学院",
+            style: TextStyle(
+              fontSize: setFontSize(10),
+              color: AppColors.textGray,
+            ),
+            textAlign: TextAlign.left,
+          ),
+          Text(
+            "v" + (Global.packageInfo?.version ?? ""),
+            style: TextStyle(
+              fontSize: setFontSize(10),
+              color: AppColors.textGray,
+            ),
+            textAlign: TextAlign.right,
+          )
+        ],
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: [
+            _buildLogo(),
+            _buildLoginForm(),
+            Spacer(),
+            _buildVersionInfo()
+          ],
+        ),
+      ),
+    );
   }
 }
