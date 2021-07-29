@@ -33,7 +33,7 @@ dependencies:
   # 屏幕适配
   flutter_screenutil: ^5.0.0+2
   # 应用程序包信息（应用名，包名，版本号，构建号等等）
-  package_info: ^2.0.2
+  package_info_plus: ^1.0.4
   # 设备信息
   device_info: ^2.0.2
   # 获取保存文件路径

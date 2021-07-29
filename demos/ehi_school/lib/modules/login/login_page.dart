@@ -6,7 +6,6 @@ import 'package:ehi_school/values/values.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-
   static const routeName = "login_page";
 
   const LoginPage({Key? key}) : super(key: key);
