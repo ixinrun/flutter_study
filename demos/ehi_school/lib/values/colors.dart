@@ -15,6 +15,10 @@ class AppColors {
   /// 分割线
   static const Color divider = Color(0xffe5e5e5);
 
+  /// 标题栏
+  static const Color titlebarBg = Color(0x00000000);
+  static const Color titlebarTitle = Color(0xFF333333);
+
   /// 输入框背景色
   static const Color textFieldBg = Color(0xFFF5F5F5);
 }

@@ -2,11 +2,12 @@ import 'package:ehi_school/base/utils/utils.dart';
 import 'package:ehi_school/common/config/global.dart';
 import 'package:ehi_school/common/utils/utils.dart';
 import 'package:ehi_school/common/widgets/widgets.dart';
+import 'package:ehi_school/modules/main/main_page.dart';
 import 'package:ehi_school/values/values.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  static const routeName = "login_page";
+  static const routeName = "/login_page";
 
   const LoginPage({Key? key}) : super(key: key);
 
@@ -54,10 +55,14 @@ class _LoginPageState extends State<LoginPage> {
       toast("请正确输入工号");
       return;
     }
+
     if (!Validator.miniStringLength(_passwordCtl.value.text, 1)) {
       toast("请正确输入密码");
       return;
     }
+
+    // 跳转到main_page
+    Navigator.pushNamed(context, MainPage.routeName);
   }
 
   // 工号输入框控制器
@@ -120,6 +125,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Column(
           children: [
