@@ -2,7 +2,7 @@ import 'package:ehi_school/base/utils/utils.dart';
 import 'package:ehi_school/common/config/global.dart';
 import 'package:ehi_school/common/utils/utils.dart';
 import 'package:ehi_school/common/widgets/widgets.dart';
-import 'package:ehi_school/modules/main/main_page.dart';
+import 'package:ehi_school/modules/home/home_page.dart';
 import 'package:ehi_school/values/values.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     // 跳转到main_page
-    Navigator.pushNamed(context, MainPage.routeName);
+    Navigator.pushNamed(context, HomePage.routeName);
   }
 
   // 工号输入框控制器

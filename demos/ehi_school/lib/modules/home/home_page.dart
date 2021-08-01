@@ -1,20 +1,20 @@
 import 'package:ehi_school/common/utils/screen_util.dart';
-import 'package:ehi_school/modules/main_notice/notice_page.dart';
-import 'package:ehi_school/modules/main_study/study_page.dart';
-import 'package:ehi_school/modules/main_user/user_page.dart';
+import 'package:ehi_school/modules/home/notice/notice_page.dart';
+import 'package:ehi_school/modules/home/study/study_page.dart';
+import 'package:ehi_school/modules/home/user/user_page.dart';
 import 'package:ehi_school/values/colors.dart';
 import 'package:flutter/material.dart';
 
-class MainPage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   static const routeName = "/main_page";
 
-  const MainPage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  _MainPageState createState() => _MainPageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _HomePageState extends State<HomePage> {
   /// 页面指针
   int _pageIndex = 0;
 
