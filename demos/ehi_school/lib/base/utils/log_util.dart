@@ -3,7 +3,7 @@ import 'dart:developer';
 /// Log Util.
 class LogUtil {
   static const String _defTag = 'log_util';
-  static bool _debugMode = false; //是否是debug模式,true: log v 不输出.
+  static bool _debugMode = false; //是否是debug模式,true: log v ;false:不输出.
   static int _maxLen = 128;
   static String _tagValue = _defTag;
 

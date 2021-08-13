@@ -42,4 +42,7 @@ class TextStyles {
       height: 1.5,
       fontFamily: "Avenir",
       fontWeight: FontWeight.normal);
+
+
+
 }
